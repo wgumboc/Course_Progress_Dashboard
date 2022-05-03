@@ -145,6 +145,41 @@ body {
   font-size: 17px;
 }
 
+.asmt-title {
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+.assessment-control label {
+  padding-right: 30px;
+}
+
+.assessment-control input {
+  width: 25%;
+  right: 0px;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.assessment-block {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  border: solid;
+  padding: 10px 50px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: "steelblue";
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;

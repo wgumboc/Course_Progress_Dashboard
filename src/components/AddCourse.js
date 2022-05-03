@@ -2,15 +2,12 @@ import { useState } from 'react'
 
 const AddCourse = ({ onAdd }) => {
     const [text, setText] = useState('')
-    const [grade, setGrade] = useState('')
 
-    const [assessment, setAssessment] = useState([
-        {
-            id: 1,
-            text: 'CPSC 213',
-            grade: 'Current Grade: 70%'
-        }
-    ])
+    // list of assessment inputs
+    const [assessmentList, setAssessmentList] = useState([
+        {assessment: ""}])
+
+    console.log(assessmentList);
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -20,33 +17,57 @@ const AddCourse = ({ onAdd }) => {
             return
         }
 
-        onAdd({ text, grade })
+        onAdd({ text, assessmentList })
 
         setText('')
-        setGrade('')
     }
 
     const addAssessment = () => {
+        setAssessmentList([...assessmentList, {assessment: ""}])
+    }
 
+    const handleAssessments = (e, index) => {
+        const {name, value} = e.target
+
+        if(!value) {
+            alert('One or more fields left blank.')
+            return
+        }
+
+        const list = [...assessmentList];
+        list[index][name] = value;
+        setAssessmentList(list);
     }
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
-                <label>Course Name</label>
+                <label className='asmt-title'>Course Name</label>
                 <input type='text' placeholder='Add Course' 
                 value={text} onChange={(e) => setText(e.target.value)}/>
             </div>
+            
+            <div className='asmt-title'>Course Assessments</div> 
 
             <button className='btn-assessment' 
                     type="button" 
                     onClick={addAssessment}>Add Assessment Component</button>
 
-            <div className='form-control'>
-                <label>Course Assessments</label>
-                <input type='text' placeholder='Midterm 1' 
-                value={grade} onChange={(e) => setGrade(e.target.value)}/>
-            </div>
+            {assessmentList.map((singleAssessment, index) => (
+                <div key={index} className='assessment-control'>
+                    {/* {assessmentList.length - 1 == index && 
+                    <button className='btn-assessment' 
+                    type="button" 
+                    onClick={addAssessment}>Add Assessment Component</button>} */}
+
+                    <input name='assessment' type='text' placeholder='Assessment Name' 
+                    value={singleAssessment.assessment} onChange={(e) => handleAssessments(e, index)}/>
+
+                    <input name='percent' type='number' placeholder='Weight (%)' 
+                    value={singleAssessment.percent} onChange={(e) => handleAssessments(e, index)}/>
+
+                </div>)
+            )}
 
             <input className='btn btn-block' type='submit' value='Save Course' />
         </form>

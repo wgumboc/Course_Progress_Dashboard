@@ -13,26 +13,26 @@ function App() {
     {
         id: 1,
         text: 'CPSC 213',
-        grade: 'Current Grade: 70%',
-        reminder: true, 
+        assessmentList: [{assessment: 'Final', 
+                          percent: '15'}]
     },
     {
         id: 2,
         text: 'CPSC 221',
-        grade: 'Current Grade: 80%',
-        reminder: true, 
+        assessmentList: [{assessment: 'Midterm 1', 
+                         percent: '14'}]
     },
     {
         id: 3,
         text: 'DSCI 100',
-        grade: 'Current Grade: 90%',
-        reminder: false, 
+        assessmentList: [{assessment: 'Midterm 2', 
+                          percent: '13'}]
     },
     {
         id: 4,
         text: 'ECON 323',
-        grade: 'Current Grade: 100%',
-        reminder: false,
+        assessmentList: [{assessment: 'Assignments', 
+                          percent: '12'}]
     }
   ])
 
@@ -42,6 +42,8 @@ function App() {
 
     const newCourse = {id, ...course}
     setCourses([...courses, newCourse])
+
+    console.log(courses)
 
   }
 

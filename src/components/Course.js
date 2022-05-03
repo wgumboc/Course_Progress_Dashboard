@@ -1,7 +1,10 @@
 import React from 'react'
+import { useState } from 'react'
 //import { FaTimes } from 'react-icons/fa'
 
 const Course = ({course}) => {
+  const [grade, setGrade] = useState('')
+
   const onClick = (e) => {
   
     const accordionContent = e.target.nextSibling;
@@ -25,12 +28,17 @@ const Course = ({course}) => {
       <button onClick={onClick} type='button' className='accordion__button'>
         {course.text}
       </button>
-      <div className = 'accordion__content'>
-        For the second to last, were given a BST and a key and want to know if that key belongs somewhere in the 
-        “middle” of the tree or will be the new leftmost or rightmost node. We can answer that question by just finding the 
-        leftmost (minimum) and rightmost (maximum) nodes. In a balanced tree, that will take O(lgn) time, but in a general 
-        BST we can get unlucky and have a very deep minimum or maximum (or even both, not that that makes any real difference 
-        to either the asymptotic or practical worst-case runtime).
+      <div className = 'accordion__content assessment-control'>
+  
+            {course.assessmentList.map((assessment, index) => (
+              <div>
+                <div className = 'assessment-block'>{assessment.assessment}</div>
+                <div className = 'assessment-block'>Weight: {assessment.percent}%</div>
+                <input name='percent' type='number' placeholder='Input Grade' value={grade}/>  
+              </div>
+            ))}
+
+
       </div>
     </div>
   )
