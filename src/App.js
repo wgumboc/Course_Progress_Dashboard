@@ -1,48 +1,63 @@
 import Header from './components/Header'
 import Button from './components/Button'
-import CouseList from './components/CourseList'
+import CourseList from './components/CourseList'
 import { useState } from 'react'
+import AddCourse from './components/AddCourse'
+//import { FaTasks } from 'react-icons/fa'
 
 function App() {
+
+  const [showAddCourse, setShowAddCourse] = useState(false)
 
   const [courses, setCourses] = useState([
     {
         id: 1,
         text: 'CPSC 213',
-        day: 'Feb 5th at 2:30pm',
+        grade: 'Current Grade: 70%',
         reminder: true, 
     },
     {
         id: 2,
         text: 'CPSC 221',
-        day: 'Feb 6th at 1:30pm',
+        grade: 'Current Grade: 80%',
         reminder: true, 
     },
     {
         id: 3,
         text: 'DSCI 100',
-        day: 'Feb 5th at 2:30pm',
+        grade: 'Current Grade: 90%',
         reminder: false, 
     },
     {
         id: 4,
         text: 'ECON 323',
-        day: 'Feb 5th at 2:30pm',
-        reminder: false, 
+        grade: 'Current Grade: 100%',
+        reminder: false,
     }
   ])
 
-  const onClick = (e) => {
+  const addCourse = (course) => {
 
-    console.log(e)
+    const id = Math.floor(Math.random() * 10000)
+
+    const newCourse = {id, ...course}
+    setCourses([...courses, newCourse])
 
   }
 
   return (
     <div className = "container">
       <Header title = "Weighted Average Calculator"/>
-      <Button color = 'rgb(41, 97, 153)' text = 'Add Course' onClick = {onClick} />
-      <CouseList courses = {courses} />
+
+      {showAddCourse &&
+        <AddCourse onAdd={addCourse} />
+      }
+
+      <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
+              text = {showAddCourse ? 'Collapse Form' : 'Add Course'} 
+              onClick = {() => setShowAddCourse(!showAddCourse)} />
+
+      <CourseList courses = {courses} />
     </div>
   );
 }
