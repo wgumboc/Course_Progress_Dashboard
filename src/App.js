@@ -10,6 +10,8 @@ function App() {
 
   const [showAddCourse, setShowAddCourse] = useState(false)
 
+  const [expandAll, setExpandAll] = useState(false)
+
   const [courses, setCourses] = useState([
     {
         id: 1,
@@ -66,10 +68,15 @@ function App() {
         {showAddCourse &&
           <AddCourse onAdd={addCourse} />
         }
-
+        
+        {/* add course button */}
         <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
                 text = {showAddCourse ? 'Collapse Form' : 'Add Course'} 
                 onClick = {() => setShowAddCourse(!showAddCourse)} />
+
+        <Button color = {expandAll ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
+                text = {expandAll ? 'Collapse All' : 'Expand All'} 
+                onClick = {() => setExpandAll(!expandAll)} />
 
         <CourseList courses = {courses} />
       </div>

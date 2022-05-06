@@ -34,12 +34,6 @@ const AddCourse = ({ onAdd }) => {
         setAssessmentList(list);
     }
 
-    const caculateGrade = () => {
-
-        
-
-    }
-
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
