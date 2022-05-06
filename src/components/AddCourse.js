@@ -29,14 +29,15 @@ const AddCourse = ({ onAdd }) => {
     const handleAssessments = (e, index) => {
         const {name, value} = e.target
 
-        if(!value) {
-            alert('One or more fields left blank.')
-            return
-        }
-
         const list = [...assessmentList];
         list[index][name] = value;
         setAssessmentList(list);
+    }
+
+    const caculateGrade = () => {
+
+        
+
     }
 
     return (

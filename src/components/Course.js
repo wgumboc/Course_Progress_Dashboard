@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 //import { FaTimes } from 'react-icons/fa'
 
 const Course = ({course}) => {
-  const [grade, setGrade] = useState('')
+
+  let [finalGrade, setFinalGrade] = useState(0)
+  const [gradeList, setGradeList] = useState([])
 
   const onClick = (e) => {
   
@@ -22,6 +24,27 @@ const Course = ({course}) => {
     }
 
   }
+  
+  const handleGrades = (e, index) => {
+
+    const {value} = e.target
+
+    const list = [...gradeList];
+    list[index] = value;
+    setGradeList(list);
+
+  }
+
+  useEffect(() => {
+    finalGrade = 0;
+    for (let i = 0; i < gradeList.length; i++) {
+      finalGrade = finalGrade + Number(gradeList[i]) * Number(course.assessmentList[i].percent) / 100
+    }
+
+    setFinalGrade(finalGrade)
+    
+  }, [gradeList]);
+
 
   return (
     <div className = 'course accordion'>
@@ -31,13 +54,18 @@ const Course = ({course}) => {
       <div className = 'accordion__content assessment-control'>
   
             {course.assessmentList.map((assessment, index) => (
-              <div>
+              <div key={index}>
+
                 <div className = 'assessment-block'>{assessment.assessment}</div>
                 <div className = 'assessment-block'>Weight: {assessment.percent}%</div>
-                <input name='percent' type='number' placeholder='Input Grade' value={grade}/>  
+
+                <input type='number' placeholder='Add Grade' 
+                name='grade' value={gradeList[index]} onChange={(e) => handleGrades(e, index)}/>
+
               </div>
             ))}
 
+            <div className='grade-block'>Current Mark for {course.text}: {finalGrade}%</div>
 
       </div>
     </div>

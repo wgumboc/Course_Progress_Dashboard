@@ -3,7 +3,8 @@ import Button from './components/Button'
 import CourseList from './components/CourseList'
 import { useState } from 'react'
 import AddCourse from './components/AddCourse'
-//import { FaTasks } from 'react-icons/fa'
+import SideNavigation from './components/SideNavigation'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
 
@@ -48,19 +49,32 @@ function App() {
   }
 
   return (
-    <div className = "container">
-      <Header title = "Weighted Average Calculator"/>
+    <>
 
-      {showAddCourse &&
-        <AddCourse onAdd={addCourse} />
-      }
+      <div>
+        <Router>
+          <SideNavigation />
+          <Routes>
+            <Route path='/' />
+          </Routes>
+        </Router>
+      </div>
+      <div className = "container">
 
-      <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
-              text = {showAddCourse ? 'Collapse Form' : 'Add Course'} 
-              onClick = {() => setShowAddCourse(!showAddCourse)} />
+        <Header title = "Weighted Average Calculator"/>
 
-      <CourseList courses = {courses} />
-    </div>
+        {showAddCourse &&
+          <AddCourse onAdd={addCourse} />
+        }
+
+        <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
+                text = {showAddCourse ? 'Collapse Form' : 'Add Course'} 
+                onClick = {() => setShowAddCourse(!showAddCourse)} />
+
+        <CourseList courses = {courses} />
+      </div>
+
+    </>
   );
 }
 
