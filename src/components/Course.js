@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-//import { FaTimes } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 
 const Course = ({course}) => {
 
@@ -48,9 +48,11 @@ const Course = ({course}) => {
 
   return (
     <div className = 'course accordion'>
+      <FaTrash style={{color: 'red', cursor: 'pointer'}} />
       <button onClick={onClick} type='button' className='accordion__button'>
-        {course.text}
+            {course.text} 
       </button>
+
       <div className = 'accordion__content assessment-control'>
   
             {course.assessmentList.map((assessment, index) => (

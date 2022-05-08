@@ -9,8 +9,9 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(182, 209, 252);
-  background-image: url("./img/Sunset-Spanish-Banks.jpeg");
-  background-size: 1500px 1000px;
+  background-image: url("./img/DSC02391.JPG");
+  background-size: 150%;
+  background-position: center;
 }
 
 .container {
@@ -38,7 +39,7 @@ header {
 
 .btn {
   display: inline-block;
-  background: #000;
+  background: rgb(41, 97, 153);
   color: #fff;
   border: solid;
   padding: 10px 20px;
@@ -98,10 +99,10 @@ header {
 }
 
 .accordion__button {
-  display: block;
-  width: 100%;
+  margin-left: 30px;
+  width: 90%;
   padding: 15px;
-  border: none;
+  border: solid;
   outline: none;
   /* cursor: pointer; */
   background: #333333;
@@ -126,6 +127,8 @@ header {
 }
 
 .accordion__content {
+  width: 88%;
+  margin-left: 53px;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.2s;
@@ -165,7 +168,7 @@ header {
 }
 
 .assessment-control input {
-  width: 32.1%;
+  width: 30%;
   right: 0px;
   height: 40px;
   margin: 5px;

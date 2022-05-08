@@ -20,6 +20,7 @@ const AddCourse = ({ onAdd }) => {
         onAdd({ text, assessmentList })
 
         setText('')
+        setAssessmentList([{assessment: "", percent: ""}]);
     }
 
     const addAssessment = () => {
@@ -50,10 +51,6 @@ const AddCourse = ({ onAdd }) => {
 
             {assessmentList.map((singleAssessment, index) => (
                 <div key={index} className='assessment-control'>
-                    {/* {assessmentList.length - 1 == index && 
-                    <button className='btn-assessment' 
-                    type="button" 
-                    onClick={addAssessment}>Add Assessment Component</button>} */}
 
                     <input name='assessment' type='text' placeholder='Assessment Name' 
                     value={singleAssessment.assessment} onChange={(e) => handleAssessments(e, index)}/>
@@ -64,7 +61,7 @@ const AddCourse = ({ onAdd }) => {
                 </div>)
             )}
 
-            <input className='btn btn-block' type='submit' value='Save Course' />
+            <input className='btn btn-block' type='submit' value='Add Course' />
         </form>
     )
 }
