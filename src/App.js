@@ -5,6 +5,7 @@ import { useState } from 'react'
 import AddCourse from './components/AddCourse'
 import SideNavigation from './components/SideNavigation'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import background from "./img/DSC02694.JPG";
 
 function App() {
 

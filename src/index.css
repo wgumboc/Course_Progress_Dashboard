@@ -9,6 +9,8 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(182, 209, 252);
+  background-image: url("./img/Sunset-Spanish-Banks.jpeg");
+  background-size: 1500px 1000px;
 }
 
 .container {
@@ -29,6 +31,9 @@ header {
   height: 150px;
   border-radius: 20px;
   font-size: 20px;
+  border: solid;
+  border-color: white;
+  border-width: 3px;
 }
 
 .btn {
@@ -75,7 +80,8 @@ header {
 }
 
 .course {
-  background: rgb(182, 209, 252);
+  /* background: rgb(182, 209, 252); */
+  background: transparent;
   margin: 0px;
   padding: 10px 20px;
   /* cursor: pointer; */
