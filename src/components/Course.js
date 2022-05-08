@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { FaTrash } from 'react-icons/fa'
+import { FaTrashAlt } from 'react-icons/fa'
 
-const Course = ({course}) => {
+const Course = ({course, deleteCourse}) => {
 
   let [finalGrade, setFinalGrade] = useState(0)
   const [gradeList, setGradeList] = useState([])
@@ -48,7 +48,7 @@ const Course = ({course}) => {
 
   return (
     <div className = 'course accordion'>
-      <FaTrash style={{color: 'red', cursor: 'pointer'}} />
+      <FaTrashAlt className='trash-btn' onClick={() => deleteCourse(course.id)} />
       <button onClick={onClick} type='button' className='accordion__button'>
             {course.text} 
       </button>

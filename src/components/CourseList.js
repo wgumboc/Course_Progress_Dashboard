@@ -1,10 +1,11 @@
 import Course from './Course'
 
-const CourseList = ({ courses }) => {
+const CourseList = ({ courses, deleteCourse }) => {
 
   return (
     <>
-      {courses.map((course) => (<Course key={course.id} course={course}/>))}
+      {courses.map((course) => (<Course key={course.id} course={course}
+                                 deleteCourse={deleteCourse} />))}
     </>
   )
 

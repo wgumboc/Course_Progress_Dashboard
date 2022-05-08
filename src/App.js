@@ -5,13 +5,10 @@ import { useState } from 'react'
 import AddCourse from './components/AddCourse'
 import SideNavigation from './components/SideNavigation'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import background from "./img/DSC02694.JPG";
 
 function App() {
 
   const [showAddCourse, setShowAddCourse] = useState(false)
-
-  const [expandAll, setExpandAll] = useState(false)
 
   const [courses, setCourses] = useState([
     {
@@ -81,6 +78,10 @@ function App() {
 
   }
 
+  const deleteCourse = (id) => {
+      setCourses(courses.filter((course) => course.id !== id))
+  }
+
   return (
     <>
 
@@ -105,7 +106,7 @@ function App() {
                 text = {showAddCourse ? 'Collapse' : 'Add Course'} 
                 onClick = {() => setShowAddCourse(!showAddCourse)} />
 
-        <CourseList courses = {courses} />
+        <CourseList courses = {courses} deleteCourse = {deleteCourse} />
       </div>
 
     </>
