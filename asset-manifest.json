@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Weighted-Average-Calculator/static/css/main.f2f0c31c.css",
-    "main.js": "/Weighted-Average-Calculator/static/js/main.bb91042f.js",
+    "main.js": "/Weighted-Average-Calculator/static/js/main.ad829574.js",
     "static/js/787.ec704a7a.chunk.js": "/Weighted-Average-Calculator/static/js/787.ec704a7a.chunk.js",
     "index.html": "/Weighted-Average-Calculator/index.html",
     "main.f2f0c31c.css.map": "/Weighted-Average-Calculator/static/css/main.f2f0c31c.css.map",
-    "main.bb91042f.js.map": "/Weighted-Average-Calculator/static/js/main.bb91042f.js.map",
+    "main.ad829574.js.map": "/Weighted-Average-Calculator/static/js/main.ad829574.js.map",
     "787.ec704a7a.chunk.js.map": "/Weighted-Average-Calculator/static/js/787.ec704a7a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f2f0c31c.css",
-    "static/js/main.bb91042f.js"
+    "static/js/main.ad829574.js"
   ]
 }
