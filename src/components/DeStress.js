@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const DeStress = () => {
-  // const url ='https://random.dog/woof.json'
+  //const url ='https://random.dog/woof.json'
   const url ='https://aws.random.cat/meow'
   const [animal, setAnimal] = useState(null)
 
@@ -19,6 +19,8 @@ const DeStress = () => {
 
   if(animal){
     content = <div className="animal"><img className="animalimg" src={animal.file} alt="animal" /></div>
+  } else {
+    content = <div>Unable to load</div>
   }
 
   return (
