@@ -216,6 +216,17 @@ header {
     cursor: pointer;
 }
 
+.animal {
+    display: flex;
+    justify-content: center;
+}
+
+.animalimg {
+    width:540px; /* you can use % */
+    height: auto;
+    border-radius: 40px;
+}
+
 footer {
   margin-top: 30px;
   text-align: center;
