@@ -86,7 +86,7 @@ const Home = () => {
   return (
     <div className = "container">
 
-        <Header title = "Weighted Average Calculator"/>
+        <Header title = "Course Progress Tracker"/>
 
         {showAddCourse &&
           <AddCourse onAdd={addCourse} />

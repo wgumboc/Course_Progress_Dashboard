@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Course Progress Tracker
+This web app allows a user to calculate and save their weighted grade average for different courses.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/19580530/168024792-b9fb2de0-69e5-475e-a86f-e162f9243064.png)
 
-## Available Scripts
+## Adding a Course
+Pressing the "Add Course" button will prompt the user with a form to input course name as well as many assessments as required.
 
-In the project directory, you can run:
+![image](https://user-images.githubusercontent.com/19580530/168025639-d71d4419-dfcf-48a1-bac0-283efa9aa3e8.png)
 
-### `npm start`
+![image](https://user-images.githubusercontent.com/19580530/168027501-93ef52ec-b3e1-4733-9281-92b4c00672ec.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Pressing the "Add Course" button will add the course to the list of courses.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/19580530/168027701-5495b799-06dd-4eb0-af4c-276b5e401392.png)
 
-### `npm test`
+## Calculating and Viewing Grades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+One or more courses can be viewed at a time by pressing on each which will expand the assesments and their weights underneath.
 
-### `npm run build`
+![image](https://user-images.githubusercontent.com/19580530/168027784-ccaaa5ea-3741-4960-8dde-bcf4d7951b3f.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Grades for each assessment component can be entered on the right, and the weighted average grade will be dynamically calculated and displayed underneath.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/19580530/168028164-7bc0d2ca-bf27-47d7-ae78-cc309fd0740d.png)
