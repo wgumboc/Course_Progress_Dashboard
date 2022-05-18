@@ -1,4 +1,4 @@
-# Course Progress Tracker
+# Course Progress Dashboard
 This web app allows a user to calculate and save their weighted grade average for different courses.
 
 ![image](https://user-images.githubusercontent.com/19580530/168024792-b9fb2de0-69e5-475e-a86f-e162f9243064.png)
