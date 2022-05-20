@@ -4,6 +4,18 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
   {
+    title: 'Login',
+    path: '/login',
+    icon: <FaIcons.FaSignInAlt />,
+    cName: 'nav-text'
+  },  
+  {
+    title: 'Register',
+    path: '/register',
+    icon: <FaIcons.FaClipboard />,
+    cName: 'nav-text'
+  },  
+  {
     title: 'Calculator',
     path: '/',
     icon: <FaIcons.FaCalculator />,
