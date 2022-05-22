@@ -5,6 +5,10 @@ import SideNavigation from './components/SideNavigation'
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import {register, reset} from './features/auth/authSlice'
+
 
 function App() {
 
@@ -25,6 +29,7 @@ function App() {
 
         </div>
     </Router>
+    <ToastContainer />
 
     </>
   );
