@@ -4,9 +4,22 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 import CourseList from '../components/CourseList'
 import AddCourse from '../components/AddCourse'
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 
 const Home = () => {
+    
+    const navigate = useNavigate()
+
+    const {user} = useSelector((state) => state.auth)
+    
+    useEffect(() => {
+      if(!user) {
+        navigate('/login')
+      }
+    }, [user, navigate])
   
     const [showAddCourse, setShowAddCourse] = useState(false)
 
@@ -84,21 +97,23 @@ const Home = () => {
   
 
   return (
-    <div className = "container">
+    <>
+      <div className = "container">
 
-        <Header title = "Course Progress Tracker"/>
+          <Header title = "Course Progress Tracker"/>
 
-        {showAddCourse &&
-          <AddCourse onAdd={addCourse} />
-        }
-        
-        <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
-                text = {showAddCourse ? 'Collapse' : 'Add Course'} 
-                onClick = {() => setShowAddCourse(!showAddCourse)} />
+          {showAddCourse &&
+            <AddCourse onAdd={addCourse} />
+          }
+          
+          <Button color = {showAddCourse ? 'rgb(255, 163, 143)' : 'rgb(41, 97, 153)'}
+                  text = {showAddCourse ? 'Collapse' : 'Add Course'} 
+                  onClick = {() => setShowAddCourse(!showAddCourse)} />
 
-        <CourseList courses = {courses} deleteCourse = {deleteCourse} />
-        
-    </div>
+          <CourseList courses = {courses} deleteCourse = {deleteCourse} />
+          
+      </div>
+    </>
   )
 }
 

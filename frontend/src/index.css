@@ -232,8 +232,6 @@ header {
     font-weight: 700;
     margin-bottom: 50px;
     padding: 0 20px;
-    justify-content: center;
-    align-items: center;
   }
   
 .heading p {
@@ -265,6 +263,25 @@ header {
   text-align: left;
   display: block;
   margin: 0 0 5px 3px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.loginsub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color:rgb(62, 86, 109)
 }
 
 footer {

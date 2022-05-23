@@ -64,14 +64,14 @@ function Register() {
 
   return (
     <>
-      <section className='heading'>
-        <h1>
+      <div className='login'>
           <FaUser /> Register
-        </h1>
+      </div>
+      <div className='loginsub'>
         <p>Please create an account</p>
-      </section>
+      </div>
 
-      <section className='form'>
+      <div className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
@@ -123,7 +123,7 @@ function Register() {
             </button>
           </div>
         </form>
-      </section>
+      </div>
     </>
   )
 }

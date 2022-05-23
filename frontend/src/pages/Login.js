@@ -57,14 +57,14 @@ function Login() {
 
   return (
     <>
-      <section className='heading'>
-        <h1>
+      <div className='login'>
           <FaSignInAlt /> Login
-        </h1>
-        <p>Login and track your course progress.</p>
-      </section>
+      </div>
+      <div className='loginsub'>
+        <p>Login to track your course progress.</p>
+      </div>
 
-      <section className='form'>
+      <div className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
@@ -95,7 +95,7 @@ function Login() {
             </button>
           </div>
         </form>
-      </section>
+      </div>
     </>
   )
 }

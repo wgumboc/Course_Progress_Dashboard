@@ -3,7 +3,6 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { SidebarData } from './SidebarData.js';
-import { SidebarData2 } from './SidebarData.js';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import {useSelector,useDispatch} from 'react-redux'
@@ -28,9 +27,12 @@ function Navbar() {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
-          <Link to='#' className='menu-bars'>
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
+          <div>
+            <Link to='#' className='menu-bars'>
+              <FaIcons.FaBars onClick={showSidebar} />
+            </Link>
+          </div>
+          <div className='welcome'>Current user: {user && user.name} </div>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
@@ -46,6 +48,7 @@ function Navbar() {
                     <FaIcons.FaSignOutAlt /> Logout
                     </button>
                 </li>
+
             ) : (
                 <>
                     <li className='nav-text'>
