@@ -19,7 +19,6 @@ function App() {
             <SideNavigation />
 
             <Routes>
-                <Route exact path='/Weighted-Average-Calculator' element={<Navigate to="/" />} />
                 <Route exact path='/' element={<Home />}/>
                 <Route exact path='/login' element={<Login />}/>
                 <Route exact path='/register' element={<Register />}/>
