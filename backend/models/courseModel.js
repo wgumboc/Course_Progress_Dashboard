@@ -8,8 +8,12 @@ const courseSchema = mongoose.Schema(
         ref: 'User'
     },
     text: {
-        type: String,
-        required: [true, 'Please add a text value']
+      type: String,
+      required: [true, 'Please add a text value']
+    },
+    assessmentList: {
+      type: Array,
+      required: [true, 'Please add assessments']
     }
 }, {
     timestamps: true

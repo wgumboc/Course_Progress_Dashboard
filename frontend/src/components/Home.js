@@ -6,24 +6,39 @@ import CourseList from '../components/CourseList'
 import AddCourse from '../components/AddCourse'
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import Spinner from '../components/Spinner'
+import {getCourses, reset} from '../features/courses/courseSlice'
 
 
 const Home = () => {
     
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const {user} = useSelector((state) => state.auth)
+    const {courses, isLoading, isError, message} = useSelector((state) =>
+    state.course)
     
     useEffect(() => {
+      if(isError) {
+        console.log(message)
+      }
+
       if(!user) {
         navigate('/login')
+      }
+
+      dispatch(getCourses())
+
+      return () => {
+        dispatch(reset())
       }
     }, [user, navigate])
   
     const [showAddCourse, setShowAddCourse] = useState(false)
 
-    const [courses, setCourses] = useState([
+    const [allCourses, setCourses] = useState([
         {
             id: 1,
             text: 'CPSC 213',
@@ -37,46 +52,6 @@ const Home = () => {
                               percent: '22'},
                               {assessment: 'Final', 
                               percent: '45'}]
-        },
-        {
-            id: 2,
-            text: 'CPSC 221',
-            assessmentList: [{assessment: 'Examlets', 
-                             percent: '45'}, 
-                             {assessment: 'Labs', 
-                             percent: '9'},
-                             {assessment: 'Homework', 
-                             percent: '12'},
-                             {assessment: 'PAs', 
-                             percent: '12'},
-                             {assessment: 'Final Exam', 
-                             percent: '22'}]
-        },
-        {
-            id: 3,
-            text: 'DSCI 100',
-            assessmentList: [{assessment: 'Quiz 1', 
-                              percent: '20'},
-                              {assessment: 'Quiz 2', 
-                              percent: '20'},
-                              {assessment: 'Quiz 3', 
-                              percent: '20'},
-                              {assessment: 'Worksheets', 
-                              percent: '6'},
-                              {assessment: 'Tutorials', 
-                              percent: '14'},
-                              {assessment: 'Project', 
-                              percent: '20'},]
-        },
-        {
-            id: 4,
-            text: 'ECON 323',
-            assessmentList: [{assessment: 'Assignments', 
-                              percent: '45'},
-                             {assessment: 'Final Project', 
-                              percent: '50'},
-                             {assessment: 'Participation', 
-                              percent: '5'}]
         }
       ])
   
@@ -85,16 +60,18 @@ const Home = () => {
       const id = Math.floor(Math.random() * 10000)
   
       const newCourse = {id, ...course}
-      setCourses([...courses, newCourse])
+      setCourses([...allCourses, newCourse])
   
-      console.log(courses)
   
     }
   
     const deleteCourse = (id) => {
-        setCourses(courses.filter((course) => course.id !== id))
+        setCourses(allCourses.filter((course) => course.id !== id))
     }
   
+    if(isLoading){
+      return <Spinner />
+    }
 
   return (
     <>
@@ -110,7 +87,12 @@ const Home = () => {
                   text = {showAddCourse ? 'Collapse' : 'Add Course'} 
                   onClick = {() => setShowAddCourse(!showAddCourse)} />
 
-          <CourseList courses = {courses} deleteCourse = {deleteCourse} />
+          {courses.length > 0 ? ( 
+          <CourseList courses = {allCourses} deleteCourse = {deleteCourse} />
+          ) : (
+               <h2>No courses found</h2> 
+          )}
+
           
       </div>
     </>

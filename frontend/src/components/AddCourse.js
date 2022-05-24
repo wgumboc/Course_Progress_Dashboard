@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import {createCourse} from '../features/courses/courseSlice'
 
 const AddCourse = ({ onAdd }) => {
     const [text, setText] = useState('')
@@ -7,7 +9,7 @@ const AddCourse = ({ onAdd }) => {
     const [assessmentList, setAssessmentList] = useState([
         {assessment: ""}])
 
-    console.log(assessmentList);
+    const dispatch = useDispatch()
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -18,6 +20,13 @@ const AddCourse = ({ onAdd }) => {
         }
 
         onAdd({ text, assessmentList })
+
+        const courseData = {
+          text,
+          assessmentList
+        }
+
+        dispatch(createCourse(courseData))
 
         setText('')
         setAssessmentList([{assessment: "", percent: ""}]);

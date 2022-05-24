@@ -18,17 +18,24 @@ const getCourses = asyncHandler(async(req, res) => {
 // @access Private
 
 const setCourse = asyncHandler(async(req, res) => {
-    if(!req.body.text) {
-        res.status(400)
-        throw new Error('Please add a text field')
-    }
+  const { text, assessmentList } = req.body
 
-    const course = await Course.create({
-        text: req.body.text,
-        user: req.user.id,
-    })
+  console.log(req.body)
+  console.log(text)
+  console.log(assessmentList)
 
-    res.status(200).json(course)
+  if(!text || !assessmentList) {
+      res.status(400)
+      throw new Error('Please add all fields')
+  }
+
+  const course = await Course.create({
+      text: req.body.text,
+      user: req.user.id,
+      assessmentList: req.body.assessmentList
+  })
+
+  res.status(200).json(course)
 })
 
 // @desc Update course
@@ -52,7 +59,7 @@ const updateCourse = asyncHandler(async(req, res) => {
     // Make sure the logged in user matches the goal user
     if(goal.user.toString() !== req.user.id) {
         res.status(401)
-        throw new Error('USer not authorized')
+        throw new Error('User not authorized')
     }
 
     const updatedCourse = await Course.findByIdAndUpdate(req.params.id,
@@ -84,7 +91,7 @@ const deleteCourse = asyncHandler(async(req, res) => {
     // Make sure the logged in user matches the goal user
     if(goal.user.toString() !== req.user.id) {
         res.status(401)
-        throw new Error('USer not authorized')
+        throw new Error('User not authorized')
     }
 
     await course.remove()
