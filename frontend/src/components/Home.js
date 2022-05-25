@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import CourseList from '../components/CourseList'
+import Course from '../components/Course'
 import AddCourse from '../components/AddCourse'
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
@@ -88,7 +88,9 @@ const Home = () => {
                   onClick = {() => setShowAddCourse(!showAddCourse)} />
 
           {courses.length > 0 ? ( 
-          <CourseList courses = {allCourses} deleteCourse = {deleteCourse} />
+            <>
+            {courses.map((course) => (<Course key={course.id} course={course}/>))}
+            </>
           ) : (
                <h2>No courses found</h2> 
           )}

@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { deleteCourse } from '../features/courses/courseSlice'
 
-const Course = ({course, deleteCourse}) => {
+const Course = ({course}) => {
+  const dispatch = useDispatch()
 
   let [finalGrade, setFinalGrade] = useState(0)
   const [gradeList, setGradeList] = useState([])
@@ -48,7 +51,8 @@ const Course = ({course, deleteCourse}) => {
 
   return (
     <div className = 'course accordion'>
-      <FaTrashAlt className='trash-btn' onClick={() => deleteCourse(course.id)} />
+      {/* <FaTrashAlt className='trash-btn' onClick={() => deleteCourse(course.id)} /> */}
+      <FaTrashAlt className='trash-btn' onClick={() => dispatch(deleteCourse(course._id))} />
       <button onClick={onClick} type='button' className='accordion__button'>
             {course.text} 
       </button>
