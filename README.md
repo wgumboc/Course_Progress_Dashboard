@@ -1,7 +1,11 @@
 # Course Progress Dashboard
-This web app allows a user to calculate and save their weighted grade average for different courses.
+This web app allows a user to track their courses and assessments, calculate their weighted average, and predict their final grade. Users can register for an account, and log in to see their saved course, assessment, and grade data.
 
-![image](https://user-images.githubusercontent.com/19580530/168024792-b9fb2de0-69e5-475e-a86f-e162f9243064.png)
+![Register](https://user-images.githubusercontent.com/19580530/170679374-45222c19-934e-4434-916c-15e1e0055278.PNG)
+
+![Login](https://user-images.githubusercontent.com/19580530/170679390-97d13a8c-24b7-499f-8808-4fdc6098e855.PNG)
+
+![Display](https://user-images.githubusercontent.com/19580530/170679526-135c7ab4-f8a6-4b6a-b3ce-185387e72ff4.PNG)
 
 ## Adding a Course
 Pressing the "Add Course" button will prompt the user with a form to input course name as well as many assessments as required.
