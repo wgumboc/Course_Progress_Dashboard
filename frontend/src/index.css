@@ -9,10 +9,10 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(182, 209, 252);
-  /* background-image: url("./img/DSC02391.JPG");
+  background-image: url("./img/Wood.jpg");
   background-size: 150%;
-  background-position: center; */
-  background-image: linear-gradient(120deg, #65bcf6, #b385fd);
+  background-position: center;
+  /* background-image: linear-gradient(120deg, #65bcf6, #b385fd); */
   background-size: 2000px 2000px;
 }
 
@@ -161,6 +161,7 @@ header {
 }
 
 .asmt-title {
+  color: white;
   text-decoration: underline;
   font-size: 25px;
 }

@@ -30,6 +30,7 @@ const getCourses = async (token) => {
 
 // Delete user course
 const deleteCourse = async (courseId, token) => {
+  console.log(courseId)
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,

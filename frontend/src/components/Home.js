@@ -77,7 +77,7 @@ const Home = () => {
     <>
       <div className = "container">
 
-          <Header title = "Course Progress Tracker"/>
+          <Header title = "Course Progress Dashboard"/>
 
           {showAddCourse &&
             <AddCourse onAdd={addCourse} />

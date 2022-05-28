@@ -4,7 +4,7 @@ const Course = require('../models/courseModel')
 const User = require('../models/userModel')
 
 // @desc Get courses
-// @route GET /api/goals
+// @route GET /api/courses
 // @access Private
 
 const getCourses = asyncHandler(async(req, res) => {
@@ -14,7 +14,7 @@ const getCourses = asyncHandler(async(req, res) => {
 })
 
 // @desc Set course
-// @route POST /api/goals
+// @route POST /api/courses
 // @access Private
 
 const setCourse = asyncHandler(async(req, res) => {
@@ -39,7 +39,7 @@ const setCourse = asyncHandler(async(req, res) => {
 })
 
 // @desc Update course
-// @route PUT /api/goals/id
+// @route PUT /api/courses/id
 // @access Private
 
 const updateCourse = asyncHandler(async(req, res) => {
@@ -89,7 +89,7 @@ const deleteCourse = asyncHandler(async(req, res) => {
     }
 
     // Make sure the logged in user matches the goal user
-    if(goal.user.toString() !== req.user.id) {
+    if(course.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
